@@ -1,0 +1,278 @@
+<mxfile host="app.diagrams.net" modified="2025-12-29T00:00:00.000Z" agent="5.0" version="21.0.0">
+  <diagram name="Grasp Pipeline" id="grasp-pipeline">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- 标题 -->
+        <mxCell id="title" value="基于SAM3与大语言模型的智能抓取系统流程图" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=22;fontStyle=1;fontColor=#1a1a1a;" vertex="1" parent="1">
+          <mxGeometry x="300" y="20" width="600" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== 输入层 ==================== -->
+
+        <!-- 用户输入 -->
+        <mxCell id="user_input" value="👤 用户输入&#xa;Text Prompt" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="100" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- 深度相机 -->
+        <mxCell id="camera" value="📷 RealSense D435&#xa;深度相机" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="220" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- 桌面场景 -->
+        <mxCell id="scene" value="🖥️ 桌面场景" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="80" y="320" width="120" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- 相机拍摄箭头 -->
+        <mxCell id="arrow_cam" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#6c8ebf;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="140" y="320" as="sourcePoint" />
+            <mxPoint x="140" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 2D图像输出 -->
+        <mxCell id="rgb_img" value="2D RGB图像" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="200" width="100" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- 深度图输出 -->
+        <mxCell id="depth_img" value="深度图" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="260" width="100" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- 相机到RGB箭头 -->
+        <mxCell id="cam_rgb" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#82b366;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="200" y="235" as="sourcePoint" />
+            <mxPoint x="240" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 相机到深度箭头 -->
+        <mxCell id="cam_depth" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#82b366;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="200" y="265" as="sourcePoint" />
+            <mxPoint x="240" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Qwen大语言模型 -->
+        <mxCell id="qwen" value="🤖 Qwen2.5-3B&#xa;大语言模型" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="240" y="80" width="130" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- 用户到Qwen箭头 -->
+        <mxCell id="user_qwen" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#9673a6;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="200" y="120" as="sourcePoint" />
+            <mxPoint x="240" y="110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Qwen输出1: 物体类别 -->
+        <mxCell id="obj_class" value="物体类别&#xa;Prompt" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="70" width="90" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Qwen输出2: 目标点 -->
+        <mxCell id="target_pos" value="目标位置&#xa;坐标" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="120" width="90" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Qwen到类别箭头 -->
+        <mxCell id="qwen_class" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#d6b656;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="370" y="95" as="sourcePoint" />
+            <mxPoint x="420" y="90" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Qwen到目标箭头 -->
+        <mxCell id="qwen_target" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#d6b656;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="370" y="125" as="sourcePoint" />
+            <mxPoint x="420" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- SAM3模型 -->
+        <mxCell id="sam3" value="🎯 SAM3&#xa;分割模型" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="560" y="180" width="110" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- 类别到SAM3 -->
+        <mxCell id="class_sam" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#b85450;curved=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="510" y="90" as="sourcePoint" />
+            <mxPoint x="560" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- RGB到SAM3 -->
+        <mxCell id="rgb_sam" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#b85450;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="210" as="sourcePoint" />
+            <mxPoint x="560" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Mask输出 -->
+        <mxCell id="mask" value="Mask图" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="280" width="80" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- SAM3到Mask -->
+        <mxCell id="sam_mask" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#b85450;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="600" y="240" as="sourcePoint" />
+            <mxPoint x="600" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 点云融合 -->
+        <mxCell id="fusion" value="Mask + 深度图&#xa;点云融合" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="350" width="110" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Mask到融合 -->
+        <mxCell id="mask_fusion" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#82b366;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="600" y="315" as="sourcePoint" />
+            <mxPoint x="600" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 深度到融合 -->
+        <mxCell id="depth_fusion" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#82b366;curved=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="280" as="sourcePoint" />
+            <mxPoint x="560" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 物体点云 -->
+        <mxCell id="obj_pcd" value="物体点云" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="430" width="80" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- 融合到点云 -->
+        <mxCell id="fusion_pcd" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#82b366;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="600" y="400" as="sourcePoint" />
+            <mxPoint x="600" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- PCL处理 -->
+        <mxCell id="pcl" value="📊 PCL点云处理&#xa;滤波/降采样" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="500" width="110" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- 点云到PCL -->
+        <mxCell id="pcd_pcl" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#6c8ebf;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="600" y="465" as="sourcePoint" />
+            <mxPoint x="600" y="500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 夹爪位姿 -->
+        <mxCell id="grasp_pose" value="🤏 夹爪位姿估计" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="580" width="110" height="45" as="geometry" />
+        </mxCell>
+
+        <!-- PCL到位姿 -->
+        <mxCell id="pcl_pose" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#6c8ebf;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="615" y="550" as="sourcePoint" />
+            <mxPoint x="615" y="580" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 机械臂抓取 -->
+        <mxCell id="robot_grasp" value="🦾 机械臂抓取" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="660" width="110" height="45" as="geometry" />
+        </mxCell>
+
+        <!-- 位姿到抓取 -->
+        <mxCell id="pose_grasp" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#9673a6;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="615" y="625" as="sourcePoint" />
+            <mxPoint x="615" y="660" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 移动到目标点 -->
+        <mxCell id="move_target" value="📍 移动到目标点" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="660" width="120" height="45" as="geometry" />
+        </mxCell>
+
+        <!-- 抓取到移动 -->
+        <mxCell id="grasp_move" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#d6b656;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="670" y="682" as="sourcePoint" />
+            <mxPoint x="720" y="682" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 目标位置到移动 -->
+        <mxCell id="target_move" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#d6b656;curved=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="510" y="140" as="sourcePoint" />
+            <mxPoint x="780" y="660" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="780" y="140" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 完成 -->
+        <mxCell id="done" value="✅ 完成" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="880" y="665" width="70" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- 移动到完成 -->
+        <mxCell id="move_done" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#82b366;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="840" y="682" as="sourcePoint" />
+            <mxPoint x="880" y="682" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 图例框 -->
+        <mxCell id="legend_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="880" y="80" width="150" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_title" value="图例说明" style="text;strokeColor=none;fillColor=none;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="920" y="85" width="70" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- 图例项 -->
+        <mxCell id="leg1" value="用户/机械臂" style="rounded=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="890" y="110" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2" value="相机/PCL" style="rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="890" y="135" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3" value="Qwen LLM" style="rounded=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="890" y="160" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4" value="SAM3分割" style="rounded=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="890" y="185" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg5" value="点云/数据" style="rounded=0;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="890" y="210" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg6" value="LLM输出" style="rounded=0;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="890" y="235" width="80" height="20" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

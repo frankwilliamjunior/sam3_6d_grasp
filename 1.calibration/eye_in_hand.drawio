@@ -1,0 +1,144 @@
+<mxfile host="app.diagrams.net" modified="2025-12-29T00:00:00.000Z" agent="5.0" etag="2" version="21.0.0" type="device">
+  <diagram name="Eye-in-Hand" id="eye-in-hand">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- 标题 -->
+        <mxCell id="title" value="眼在手上 (Eye-in-Hand)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="280" y="20" width="280" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- 工作台 -->
+        <mxCell id="table" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="100" y="450" width="600" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="table_label" value="工作台" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="480" width="60" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- 机械臂基座 -->
+        <mxCell id="base" value="基座 {B}" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#666666;strokeColor=#333333;fontColor=#ffffff;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="420" width="100" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- 机械臂连杆1 -->
+        <mxCell id="link1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffcc00;strokeColor=#d6b656;rotation=30;" vertex="1" parent="1">
+          <mxGeometry x="230" y="310" width="30" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- 机械臂连杆2 -->
+        <mxCell id="link2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffcc00;strokeColor=#d6b656;rotation=-20;" vertex="1" parent="1">
+          <mxGeometry x="300" y="200" width="25" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- 机械臂末端 -->
+        <mxCell id="end_effector" value="末端 {E}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="350" y="150" width="80" height="45" as="geometry" />
+        </mxCell>
+
+        <!-- 相机 -->
+        <mxCell id="camera" value="📷 相机 {C}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="350" y="80" width="80" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- 相机视野线 -->
+        <mxCell id="view1" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#999999;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="390" y="130" as="sourcePoint" />
+            <mxPoint x="500" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="view2" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#999999;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="390" y="130" as="sourcePoint" />
+            <mxPoint x="620" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 标定板 (固定在工作台) -->
+        <mxCell id="board" value="标定板 {T}" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="500" y="350" width="120" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- 棋盘格 -->
+        <mxCell id="c1" value="" style="rounded=0;fillColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="520" y="380" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="c2" value="" style="rounded=0;fillColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="544" y="380" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" value="" style="rounded=0;fillColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="568" y="380" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" value="" style="rounded=0;fillColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="532" y="392" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="c5" value="" style="rounded=0;fillColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="556" y="392" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="c6" value="" style="rounded=0;fillColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="580" y="392" width="12" height="12" as="geometry" />
+        </mxCell>
+
+        <!-- 箭头X: 相机到末端 -->
+        <mxCell id="arrowX" value="" style="endArrow=classic;html=1;strokeColor=#9933FF;strokeWidth=3;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="390" y="130" as="sourcePoint" />
+            <mxPoint x="390" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="labelX" value="X (待求)&#xa;T_cam_to_end" style="text;fillColor=#e1d5e7;strokeColor=none;rounded=1;fontSize=10;fontStyle=1;fontColor=#9933FF;" vertex="1" parent="1">
+          <mxGeometry x="430" y="100" width="90" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- 箭头A: 末端到基座 -->
+        <mxCell id="arrowA" value="" style="endArrow=classic;html=1;strokeColor=#009900;strokeWidth=3;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="350" y="172" as="sourcePoint" />
+            <mxPoint x="250" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="labelA" value="A (已知)&#xa;T_end_to_base" style="text;fillColor=#d5e8d4;strokeColor=none;rounded=1;fontSize=10;fontStyle=1;fontColor=#009900;" vertex="1" parent="1">
+          <mxGeometry x="250" y="260" width="90" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- 箭头B: 标定板到相机 -->
+        <mxCell id="arrowB" value="" style="endArrow=classic;html=1;strokeColor=#CC0000;strokeWidth=3;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="500" y="370" as="sourcePoint" />
+            <mxPoint x="420" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="labelB" value="B (已知)&#xa;T_target_to_cam" style="text;fillColor=#f8cecc;strokeColor=none;rounded=1;fontSize=10;fontStyle=1;fontColor=#CC0000;" vertex="1" parent="1">
+          <mxGeometry x="450" y="230" width="100" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- 说明框 -->
+        <mxCell id="note_box" value="" style="rounded=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="620" y="80" width="160" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="note_title" value="特点说明" style="text;strokeColor=none;fillColor=none;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="85" width="80" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="n1" value="• 相机装在末端" style="text;strokeColor=none;fillColor=none;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="630" y="110" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="n2" value="• 标定板固定" style="text;strokeColor=none;fillColor=none;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="630" y="130" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="n3" value="• 求解: AX = XB" style="text;strokeColor=none;fillColor=none;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="630" y="150" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="n4" value="• 适用: 精密装配" style="text;strokeColor=none;fillColor=none;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="630" y="170" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="n5" value="• 近距离精度高" style="text;strokeColor=none;fillColor=none;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="630" y="190" width="140" height="20" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
